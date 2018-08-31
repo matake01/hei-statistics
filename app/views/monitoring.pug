@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  .row.main-container
+    .col-sm-12
+      div.table-responsive
+        table.table.table-striped
+          thead
+            tr
+              each col in titles
+                th(class=(col == 0) ? '.col-xs-1' : '.col-xs-4') #{col}
+          tbody
+            each row in results
+              tr
+                each col in row
+                  td #{col}
