@@ -1,5 +1,5 @@
 SELECT
-    COL1.konto as 'Chalmers tekniska högskola',
+    COL1.konto as 'Chalmers tekniska hÃ¶gskola',
    	IFNULL(GROUP_CONCAT(COL2.tkr),'') as '1998',
     IFNULL(GROUP_CONCAT(COL3.tkr),'') as '1999',
     IFNULL(GROUP_CONCAT(COL4.tkr),'') as '2000',
@@ -12,6 +12,6 @@ LEFT JOIN takbeloppsuppfoljning as COL4 ON COL1.id = COL4.id AND COL4.ar='2000'
 LEFT JOIN takbeloppsuppfoljning as COL5 ON COL1.id = COL5.id AND COL5.ar='2001'
 LEFT JOIN takbeloppsuppfoljning as COL6 ON COL1.id = COL6.id AND COL6.ar='2002'
 WHERE 1
-AND COL1.larosate = 'Chalmers tekniska högskola'
+AND COL1.larosate = 'Chalmers tekniska hÃ¶gskola'
 AND COL1.ar IN ( '1998', '1999', '2000', '2001', '2002' )
 GROUP BY COL1.konto;
