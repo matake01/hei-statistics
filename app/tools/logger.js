@@ -5,14 +5,14 @@ const { combine, timestamp, label, printf } = format;
 // create log directory if not exists
 const logDir = __dirname + "/../../log";
 if (!fs.existsSync(logDir)) {
-  fs.mkdirSync(logDir);
+  fs.mkdirSync(logDir)
 }
 
 const customFormat = combine(
   label({ label: 'app' }),
   timestamp(),
   printf(info => { return `${info.timestamp} [${info.label}] ${info.level}: ${info.message}`; })
-);
+)
 
 const logger = createLogger({
   level: process.env.LOG_LEVEL,
@@ -25,7 +25,7 @@ const logger = createLogger({
     new transports.File({ filename: 'log/error.log', level: 'error', format: customFormat }),
     new transports.File({ filename: 'log/combined.log', format: customFormat})
   ]
-});
+})
 
 //
 // If we're not in production then log to the `console` with the format:
@@ -34,7 +34,7 @@ const logger = createLogger({
 if (process.env.NODE_ENV !== 'production') {
   logger.add(new transports.Console({
     format: customFormat
-  }));
+  }))
 }
 
-module.exports = logger;
+module.exports = logger

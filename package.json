@@ -5,9 +5,8 @@
   "main": "app/main.js",
   "scripts": {
     "start": "node app/main.js",
-    "test": "npm run lint && npm run jest",
+    "test": "npm run jest",
     "jest": "jest --coverage app/__tests__/*.test.js",
-    "lint": "eslint app/**",
     "prettier": "prettier --write app/*.js app/**/__{tests,mocks}__/*.js"
   },
   "dependencies": {
@@ -26,10 +25,9 @@
     "winston": "^3.0.0"
   },
   "devDependencies": {
-    "eslint": "^4.12.1",
     "jest": "^21.2.1",
-    "supertest": "~3.0.0",
-    "prettier": "^1.9.1"
+    "prettier": "^1.9.1",
+    "supertest": "~3.0.0"
   },
   "engines": {
     "node": "~6.10.x"

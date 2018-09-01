@@ -6,7 +6,7 @@ const ResultatrakningModel = require('./resultatrakning')
 const TakbeloppsuppfoljningModel = require('./takbeloppsuppfoljning')
 const HstHprModel = require('./hst_hpr')
 
-const db = new Sequelize(
+const sequelize = new Sequelize(
   process.env.DB_NAME,
   process.env.DB_USERNAME,
   process.env.DB_PASSWORD,
@@ -28,20 +28,21 @@ const db = new Sequelize(
   }
 )
 
-const Balansrakning = BalansrakningModel(db, Sequelize)
-const Resultatrakning = ResultatrakningModel(db, Sequelize)
-const Takbeloppsuppfoljning = TakbeloppsuppfoljningModel(db, Sequelize)
-const HstHpr = HstHprModel(db, Sequelize)
+const Balansrakning = BalansrakningModel(sequelize, Sequelize)
+const Resultatrakning = ResultatrakningModel(sequelize, Sequelize)
+const Takbeloppsuppfoljning = TakbeloppsuppfoljningModel(sequelize, Sequelize)
+const HstHpr = HstHprModel(sequelize, Sequelize)
 
-db.sync({ force: false })
-  .then(() => {
-    logger.info(`Database synchronized.`);
-  })
+sequelize.sync({ force: false })
+.then(() => {
+  logger.info(`Database synchronized.`);
+})
 
 module.exports = {
   Balansrakning,
   Resultatrakning,
   Takbeloppsuppfoljning,
   HstHpr,
-  Sequelize
+  Sequelize,
+  sequelize
 };
