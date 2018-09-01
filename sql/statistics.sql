@@ -14,4 +14,5 @@ LEFT JOIN takbeloppsuppfoljning as COL6 ON COL1.id = COL6.id AND COL6.ar='2002'
 WHERE 1
 AND COL1.larosate = 'Chalmers tekniska högskola'
 AND COL1.ar IN ( '1998', '1999', '2000', '2001', '2002' )
-GROUP BY COL1.konto;
+GROUP BY 1
+ORDER BY 1 ASC;
