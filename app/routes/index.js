@@ -9,6 +9,7 @@ router.get('/', function (req, res) {
 
 /* GET statistics monitoring page. */
 router.get('/statistics/monitoring', function (req, res) {
+  
   const hei = (req.query.hei != null ? req.query.hei : '')
   const interval = (req.query.interval != null ? req.query.interval.split(/,/) : [])
 
