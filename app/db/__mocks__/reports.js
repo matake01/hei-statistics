@@ -1,19 +1,20 @@
 module.exports = {
-  getConcatArrayByInterval: interval => {
+  getConcatArrayByInterval: (interval) => {
     return [',IFNULL(GROUP_CONCAT(COL2.tkr),"") AS "1998"'];
   },
 
-  getLeftJoinArrayByInterval: interval => {
+  getLeftJoinArrayByInterval: (interval) => {
     return [
       'LEFT JOIN takbeloppsuppfoljning as COL2 ON COL1.id = COL2.id AND COL2.ar=1998'
     ];
   },
 
-  createListStringByInterval: interval => {
+  createListStringByInterval: (interval) => {
     return '(1998, 1999, 2000, 2001, 2002)';
   },
 
   getMonitoringReport: (hei, interval) => {
+    console.log("HOHOHO");
     return Promise.resolve([
       {
         '1998': '470 457',

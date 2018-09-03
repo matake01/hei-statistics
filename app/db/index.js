@@ -1,10 +1,8 @@
-const logger = require('./../tools/logger');
-
 const { Sequelize } = require('sequelize')
-const BalansrakningModel = require('./balansrakning')
-const ResultatrakningModel = require('./resultatrakning')
-const TakbeloppsuppfoljningModel = require('./takbeloppsuppfoljning')
-const HstHprModel = require('./hst_hpr')
+const BalansrakningModel = require('./models/balansrakning')
+const ResultatrakningModel = require('./models/resultatrakning')
+const TakbeloppsuppfoljningModel = require('./models/takbeloppsuppfoljning')
+const HstHprModel = require('./models/hst_hpr')
 
 const sequelize = new Sequelize(
   process.env.DB_NAME,
@@ -34,9 +32,6 @@ const Takbeloppsuppfoljning = TakbeloppsuppfoljningModel(sequelize, Sequelize)
 const HstHpr = HstHprModel(sequelize, Sequelize)
 
 sequelize.sync({ force: false })
-.then(() => {
-  logger.info(`Database synchronized.`);
-})
 
 module.exports = {
   Balansrakning,

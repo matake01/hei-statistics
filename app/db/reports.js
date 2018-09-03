@@ -1,12 +1,12 @@
-const { Sequelize, sequelize } = require('./models')
+const { Sequelize, sequelize } = require('./index')
 
-const getConcatArrayByInterval = interval => {
+const getConcatArrayByInterval = (interval) => {
   let arr = []
   interval.forEach((v, i) => arr = [ ...arr, [' ,IFNULL(GROUP_CONCAT(COL' + Number(i + 2) + ".tkr),'') AS '" + v + "'"]])
   return arr
 }
 
-const getLeftJoinArrayByInterval = interval => {
+const getLeftJoinArrayByInterval = (interval) => {
   let arr = []
   interval.forEach((v, i) => {
     const col = Number(i + 2)
@@ -28,7 +28,7 @@ const getLeftJoinArrayByInterval = interval => {
   return arr
 }
 
-const createListStringByInterval = interval => {
+const createListStringByInterval = (interval) => {
   let string = (interval.length > 0 ? '' : "''")
   interval.forEach((v, i) => (string += "'" + v + "'" + (i + 1 < interval.length ? ',' : '')))
   return '(' + string + ')';
@@ -57,7 +57,6 @@ module.exports = {
         type: Sequelize.QueryTypes.SELECT,
       })
     .then(function(response) {
-      console.log(JSON.stringify(response));
       return response
     })
   }

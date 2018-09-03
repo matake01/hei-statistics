@@ -1,6 +1,6 @@
 const request = require('supertest');
 
-jest.mock('../statistics.js');
+jest.mock('../db/reports');
 
 const app = require('../main.js');
 
