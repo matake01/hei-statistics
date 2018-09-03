@@ -53,10 +53,11 @@ module.exports = {
       {
         replacements: {
         hei: hei
-      },
-        type: Sequelize.QueryTypes.SELECT
+        },
+        type: Sequelize.QueryTypes.SELECT,
       })
     .then(function(response) {
+      console.log(JSON.stringify(response));
       return response
     })
   }
